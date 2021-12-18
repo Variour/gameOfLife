@@ -1,0 +1,129 @@
+:root {
+    --main-color: lightgrey;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+    background-color: var(--main-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .4s all ease;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: min(450px, 98vw);
+}
+
+#rules {
+    height: 95px;
+}
+
+footer {
+    font-size: 80%;
+    text-align: left;
+    width: 100vw;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Brush Script MT', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 300%;
+}
+
+p {
+    margin: 0;
+}
+
+.madeby {
+    width: fit-content;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+}
+
+button {
+    padding: 8px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+/* toggle */
+.switch {
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    opacity: 70%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-thumb:before {
+    content: "";
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    transition: .4s all ease;
+}
+
+svg {
+    fill: var(--main-color);
+}
+
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox:checked+.toggle-thumb:before {
+    transform: translateX(16px);
+}
+
+.button-animated:active {
+    transform: translateY(4px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
+    align-content: center;
+}
+
+.grid-item {
+    border: 1px dotted black;
+}
