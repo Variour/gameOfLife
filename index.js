@@ -1,25 +1,13 @@
-const edgeLength = 35;
+var edgeLength = 25;
 filledCellPercentage = 0.25;
 
+const edgeLengthInput = document.getElementById('edgeLength');
+edgeLengthInput.value = edgeLength;
+edgeLengthInput.addEventListener("change", changeEdgeLength);
 document.documentElement.style.setProperty('--edge-length', edgeLength);
 const webGrid = document.getElementById('grid');
-var grid = [];
-// set up grid
-for (var i = 0; i < edgeLength; i++) {
-    grid[i] = [];
-    for (var j = 0; j < edgeLength; j++) {
-        grid[i][j] = Math.random() < filledCellPercentage ? true : false;
-        const div = document.createElement('div');
-        div.className = 'grid-item';
-        div.id = `${i}-${j}`;
-        const node = document.createTextNode('');
-        div.appendChild(node);
-        div.addEventListener('click', toggleCell)
-        webGrid.appendChild(div);
-    }
-}
-updateGrid();
-
+var grid;
+setupGrid();
 document.getElementById('evolve').addEventListener('click', evolve);
 document.getElementById('clearBoard').addEventListener('click', clearBoard);
 
@@ -77,6 +65,31 @@ function toggleCell(evt) {
 function clearBoard() {
     for (var i = 0; i < grid.length; i++) {
         grid[i].fill(false);
+    }
+    updateGrid();
+}
+
+function changeEdgeLength(evt) {
+    edgeLength = evt.target.value;
+    document.documentElement.style.setProperty('--edge-length', edgeLength);
+    setupGrid();
+}
+
+function setupGrid() {
+    grid = [];
+    document.getElementById('grid').innerHTML = '';
+    for (var i = 0; i < edgeLength; i++) {
+        grid[i] = [];
+        for (var j = 0; j < edgeLength; j++) {
+            grid[i][j] = Math.random() < filledCellPercentage ? true : false;
+            const div = document.createElement('div');
+            div.className = 'grid-item';
+            div.id = `${i}-${j}`;
+            const node = document.createTextNode('');
+            div.appendChild(node);
+            div.addEventListener('click', toggleCell)
+            webGrid.appendChild(div);
+        }
     }
     updateGrid();
 }
