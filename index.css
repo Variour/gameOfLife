@@ -1,5 +1,6 @@
 :root {
     --main-color: lightgrey;
+    --text-color: black;
     --edge-length: 20;
 }
 
@@ -10,7 +11,7 @@ html {
 body {
     background-color: var(--main-color);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: black;
+    color: var(--text-color);
     text-align: center;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -46,8 +47,14 @@ h1 {
     font-size: 300%;
 }
 
-p {
+a {
     margin: 0;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
 }
 
 .madeby {
