@@ -28,7 +28,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: min(450px, 98vw);
+    align-items: center;
+    max-width: min(600px, 98vw);
 }
 
 #rules {
