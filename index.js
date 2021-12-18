@@ -1,6 +1,7 @@
-const edgeLength = 20;
+const edgeLength = 35;
 filledCellPercentage = 0.25;
 
+document.documentElement.style.setProperty('--edge-length', edgeLength);
 const webGrid = document.getElementById('grid');
 var grid = [];
 // set up grid

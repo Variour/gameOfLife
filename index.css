@@ -1,5 +1,6 @@
 :root {
     --main-color: lightgrey;
+    --edge-length: 20;
 }
 
 html {
@@ -119,8 +120,8 @@ svg {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(20, 20px);
-    grid-template-rows: repeat(20, 20px);
+    grid-template-columns: repeat(var(--edge-length), 20px);
+    grid-template-rows: repeat(var(--edge-length), 20px);
     align-content: center;
 }
 
