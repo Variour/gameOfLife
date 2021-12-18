@@ -41,10 +41,9 @@ footer {
     width: 100vw;
 }
 
-h1 {
+h3 {
     margin: 0;
-    font-family: 'Brush Script MT', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 300%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 a {

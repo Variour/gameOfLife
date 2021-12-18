@@ -22,8 +22,16 @@
         <input id="filledBoxesPercent" type="number">
     </header>
     <main>
-        <div class="grid" id="grid">
-        </div>
+        <h1 class="title" id="title">Conways Spiel des Lebens</h1>
+        <div class="grid" id="grid"></div>
+        <p id="rules">
+            Eine Zelle mit einem x ist eine lebende Zelle.<br>
+            Eine leere Zelle ist eine tote Zelle.
+            Bei jeder Evolution gelten folgende Regeln:<br>
+            1. Eine lebende Zelle mit zwei oder drei Nachbarn bleibt am leben<br>
+            2. Eine tote Zelle mit drei lebenden Nachbarn wird neu geboren<br>
+            3. Alle anderen Zellen sterben/bleiben tot
+        </p>
     </main>
     <footer>
         <a href="https://github.com/Variour/gameOfLife">Made by Tim.</a>
