@@ -1,9 +1,12 @@
 var edgeLength = 25;
-filledCellPercentage = 0.25;
+var filledCellPercentage = 0.25;
 
 const edgeLengthInput = document.getElementById('edgeLength');
 edgeLengthInput.value = edgeLength;
 edgeLengthInput.addEventListener("change", changeEdgeLength);
+const filledBoxesPercentInput = document.getElementById('filledBoxesPercent');
+filledBoxesPercentInput.value = filledCellPercentage;
+filledBoxesPercentInput.addEventListener("change", updateFilledCellPercentage);
 document.documentElement.style.setProperty('--edge-length', edgeLength);
 const webGrid = document.getElementById('grid');
 var grid;
@@ -75,13 +78,28 @@ function changeEdgeLength(evt) {
     setupGrid();
 }
 
+function fillGrid(type, update = true) {
+    switch (type) {
+        default:
+            grid = [];
+            for (var i = 0; i < edgeLength; i++) {
+                grid[i] = [];
+                for (var j = 0; j < edgeLength; j++) {
+                    grid[i][j] = Math.random() < filledCellPercentage ? true : false;
+                }
+            }
+            break;
+    }
+    if (update) {
+        updateGrid();
+    }
+}
+
 function setupGrid() {
-    grid = [];
+    fillGrid('random', false);
     document.getElementById('grid').innerHTML = '';
     for (var i = 0; i < edgeLength; i++) {
-        grid[i] = [];
         for (var j = 0; j < edgeLength; j++) {
-            grid[i][j] = Math.random() < filledCellPercentage ? true : false;
             const div = document.createElement('div');
             div.className = 'grid-item';
             div.id = `${i}-${j}`;
@@ -92,4 +110,9 @@ function setupGrid() {
         }
     }
     updateGrid();
+}
+
+function updateFilledCellPercentage(evt) {
+    filledCellPercentage = evt.target.value;
+    fillGrid();
 }
