@@ -13,6 +13,7 @@ var grid;
 setupGrid();
 document.getElementById('evolve').addEventListener('click', evolve);
 document.getElementById('clearBoard').addEventListener('click', clearBoard);
+document.getElementById('resetBoard').addEventListener('click', fillGrid);
 
 function updateGrid() {
     for (var i = 0; i < edgeLength; i++) {
